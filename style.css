@@ -27,10 +27,11 @@ main {
 
 .pokemon__image {
   position: absolute;
-  bottom: 55%;
+  top: 34%;        /* posiciona bem no visor */
   left: 50%;
-  transform: translate(-63%, 20%);
-  height: 18%;
+  transform: translate(-50%, -50%);
+  height: 20%;     /* ajuste fino do tamanho */
+  image-rendering: pixelated; /* pra ficar com vibe de sprite */
 }
 
 .pokemon__data {
@@ -91,4 +92,5 @@ main {
 .button:active {
   box-shadow: inset -4px 4px 0 #222;
   font-size: 0.9rem;
+
 }
