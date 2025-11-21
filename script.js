@@ -16,7 +16,7 @@ const fetchPokemon = async (pokemon) => {
     const data = await APIResponse.json();
     return data;
   }
-}
+};
 
 const renderPokemon = async (pokemon) => {
 
@@ -29,15 +29,22 @@ const renderPokemon = async (pokemon) => {
     pokemonImage.style.display = 'block';
     pokemonName.innerHTML = data.name;
     pokemonNumber.innerHTML = data.id;
-    pokemonImage.src = data['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
+
+    // pega sprite animada ou, se não tiver, usa a normal
+    const spriteAnimated = data.sprites.versions['generation-v']['black-white'].animated.front_default;
+    const spriteDefault = data.sprites.front_default;
+
+    pokemonImage.src = spriteAnimated || spriteDefault;
+
     input.value = '';
     searchPokemon = data.id;
+
   } else {
     pokemonImage.style.display = 'none';
     pokemonName.innerHTML = 'Não encontrado :c';
     pokemonNumber.innerHTML = '';
   }
-}
+};
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
